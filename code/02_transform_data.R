@@ -26,5 +26,15 @@ CIT_full_clr %>%
   rownames_to_column("gene") %>%
   write_csv("data/02_CIT_full_clr.csv")
 
+print("Writting annotation file")
+CIT_annot %>%
+  write_csv("data/02_CIT_annotations.csv")
+
+print("writting CIT_class file")
+CIT_classes %>%
+  as_tibble(rownames=NA) %>%
+  rownames_to_column("CIT_sample") %>%
+  write_csv("data/02_CIT_sample_to_class.csv")
+
 print("Finished - 02_transform_data.R")
 
